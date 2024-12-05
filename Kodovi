@@ -1,0 +1,65 @@
+Prvi:
+def obradi_dvocifreni_broj(broj):
+    if broj < 10 or broj > 99:
+        print("Uneti broj nije dvocifren.")
+        return
+
+    prva_cifra = broj // 10
+    druga_cifra = broj % 10
+
+    if prva_cifra > druga_cifra:
+        rezultat = prva_cifra - druga_cifra
+        print(f"Razlika prve i druge cifre je: {rezultat}")
+    elif prva_cifra < druga_cifra:
+        rezultat = prva_cifra + druga_cifra
+        print(f"Zbir prve i druge cifre je: {rezultat}")
+    else:
+        rezultat = prva_cifra * druga_cifra
+        print(f"Proizvod prve i druge cifre je: {rezultat}")
+
+broj = int(input("Unesite dvocifreni broj: "))
+obradi_dvocifreni_broj(broj)
+____________________________________________________________
+Drugi:
+def ukloni_ponovljenje_karaktere(lista):
+    rezultat = ""
+    for karakter in lista:
+        if karakter not in rezultat:
+            rezultat += karakter
+    return rezultat
+
+ulazni_string = "ivica"   
+izlazni_string = ukloni_ponovljenje_karaktere(ulazni_string)
+print(izlazni_string)
+__________________________________________________________
+Treci:
+def izracunaj_prosecnu_temepraturu(string_temperatura):
+    temperature = string_temperatura.split()
+    temperature = [int(temp) for temp in temperature]
+    prosecna_teenperatura = sum(temperature) / len(temperature)
+    print(int(prosecna_teenperatura))
+
+string_temperatura = "20 25 30 35 40"
+izracunaj_prosecnu_temepraturu(string_temperatura)
+________________________________________________________
+Cetvri:
+def kompresuj_string(s):
+    if not s:
+        return ""
+    
+    rezultat = []
+    brojac = 1
+
+    for i in range(1, len(s)):
+        if s[i] == s[i-1]:
+            brojac += 1
+        else:
+            rezultat.append(s[i-1] + str(brojac))
+            brojac = 1
+        
+    rezultat.append(s[-1] + str(brojac))
+    return "".join(rezultat)
+
+ulazni_string = "aaabbbcc"
+kompresovan_string = kompresuj_string(ulazni_string)
+print(kompresovan_string)  # a3b3c2
